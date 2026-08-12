@@ -38,6 +38,9 @@ docker compose up -d --build
 Then open the port listed in that app's README (the trading journal is
 <http://localhost:5010>).
 
+Connecting the trading journal to a real cTrader account needs an Open API application —
+see **[trading_journal/CTRADER-SETUP.md](trading_journal/CTRADER-SETUP.md)**.
+
 ---
 
 ## How these apps are laid out

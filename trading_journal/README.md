@@ -23,9 +23,9 @@ docker compose up -d --build
 Open <http://localhost:5010>, then **Settings → Data & system → Dummy data** to fill
 it with realistic trades and explore everything below.
 
-To sync real trades: create an app at [openapi.ctrader.com](https://openapi.ctrader.com/),
-put the client ID/secret in `.env`, add `http://localhost:5010/` as a Redirect URI,
-then **Settings → cTrader sync → Connect**.
+To sync real trades you need a cTrader Open API application — registration is free but
+Spotware approve each one by hand, so apply early. Full walkthrough:
+**[CTRADER-SETUP.md](CTRADER-SETUP.md)**.
 
 ---
 
