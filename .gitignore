@@ -1,0 +1,34 @@
+# Secrets — every app keeps its real config in .env, and ships a .env.example instead
+.env
+.env.*
+!.env.example
+
+# Runtime data. Apps persist their databases, tokens, uploads and backups into a
+# ./data folder next to their docker-compose.yml — that is yours and never committed.
+data/*
+!data/.gitkeep
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node
+node_modules/
+dist/
+build/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

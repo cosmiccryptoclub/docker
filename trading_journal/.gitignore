@@ -1,0 +1,27 @@
+# Secrets — real credentials live here, only .env.example is committed
+.env
+.env.local
+
+# Runtime data: your database, broker token, settings, screenshots, backups.
+# The whole ./data volume is yours and must never be committed.
+data/*
+!data/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+
+# Node / frontend build
+frontend/node_modules/
+frontend/dist/
+
+# Editors
+.vscode/
+.idea/
+.DS_Store
+
+# Misc
+*.log

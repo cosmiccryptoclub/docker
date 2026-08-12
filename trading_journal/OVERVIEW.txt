@@ -1,0 +1,119 @@
+TRADE JOURNAL
+=============
+A self-hosted trading journal for cTrader (prop-firms).
+Runs in a single Docker container on your own machine - your data never
+leaves it. Built around how scalpers actually trade: hotkey scale-in
+entries and partial take-profits are grouped into ONE logical trade.
+
+
+WHAT'S IN IT
+------------
+
+Dashboard
+  Net P&L, win rate, profit factor, expectancy, avg R, drawdown, streaks,
+  fees, best/worst days. Equity curve in $ or R (green in profit, red in
+  drawdown), R-distribution, daily P&L calendar, time-of-day heatmap,
+  and breakdowns by symbol / setup / session / weekday.
+
+Live
+  Real-time account view: balance, equity, floating P&L, used and free
+  margin, margin level, and all open positions - pulled straight from the
+  broker, refreshing every 5 seconds.
+
+Trades
+  Every trade with search + filters. Expand any trade to see each
+  individual fill. Full chart per trade with your entries, partial TPs
+  and stop plotted on real candles, plus bar-by-bar replay.
+  Select several trades and group them into one - for scale-ins you added
+  too far apart for the automatic grouping to catch.
+  Export to CSV or JSON at any time.
+
+Trade log
+  A single timeline per trade: every entry, every partial take profit,
+  every time you moved your stop (flagged as tightened, moved to
+  breakeven, or widened) and every overnight swap charge.
+
+Trade analysis
+  MAE / MFE (how much heat you took vs how far it ran), capture % (how
+  much of the peak you kept), and a "post-mortem" showing what was left
+  on the table after you exited. Plus an exit optimiser that simulates
+  fixed R-targets against your actual history to find your best exit.
+
+Calendar & Journal
+  Monthly P&L grid. Click any day for its stats, its trades, and a daily
+  journal: pre-market plan, notes, lessons, mood, discipline rating and
+  a "did I follow the plan?" flag.
+
+Discipline goals
+  Set max trades per day, a personal daily-loss cap, a monthly R target
+  and minimum checklist adherence. Progress bars on the dashboard, and
+  days where you over-traded or broke your cap get flagged on the calendar.
+
+Prop firm rules + alerts
+  Per-account daily-loss, max-drawdown (static or trailing) and profit
+  targets. Discord alerts when you approach a limit (threshold is yours
+  to set), breach one, or hit a profit target - plus an optional daily
+  summary posted to Discord.
+
+Prop firm tracker
+  Log challenge fees, resets, subscriptions, payouts and refunds per firm.
+  See total spent, total received, net profit and return-on-fees, broken
+  down by firm and by year. Exports a ledger and a per-year tax summary.
+
+Tags & insights
+  Fully configurable tag groups (technical, order flow, liquidity, market
+  regime, psychology...). Tag your trades, then drill down: net P&L, win
+  rate, expectancy and avg R per tag, with best/worst leaderboards.
+
+Playbooks
+  Define strategies with pre-trade rule checklists, then see your win rate
+  bucketed by how closely you actually followed them.
+
+Weekly review
+  Week-at-a-glance report: stats, per-day results, best and worst trades,
+  and the mistakes you logged.
+
+Economic calendar
+  High-impact news is pulled automatically and overlaid on your trade
+  charts, with a "news during this trade" list and an upcoming-events
+  widget on the dashboard.
+
+Backtest sandbox
+  Replay historical candles and log practice trades into a separate
+  account that's excluded from your real stats.
+
+Accounts
+  Multiple accounts (prop challenges, funded, demos) with a global
+  aggregated view or per-account drill-down.
+
+
+UNDER THE HOOD
+--------------
+  - Automatic sync from cTrader every few minutes.
+  - Local candle storage: 1-minute (and higher) price data is captured and
+    stored permanently for crypto, indices, gold, forex and oil - so your
+    charts still work years later, long after free data sources expire it.
+  - Optional broker-exact candles pulled from cTrader itself.
+  - Watches your open positions and records stop moves and swap charges
+    as they happen.
+  - Mobile and tablet friendly, with a collapsible sidebar and hamburger menu.
+  - Timezone aware (London by default) - daylight saving handled automatically.
+  - Dummy data generator so you can explore the whole app before connecting
+    a real account.
+  - Manual import from JSON or CSV.
+  - Paste screenshots straight from your clipboard onto a trade.
+  - Nightly automatic backups.
+  - Logs and scheduled-task pages so you can see exactly what's running.
+  - Export anything to CSV or JSON.
+
+
+PLANNED
+-------
+  - Connect crypto futures / perpetual exchanges by API.
+  - Connect DEX (on-chain) trading.
+  - Spot trading support.
+  - Full financial reports.
+  - Tax reports covering all trading, not just prop firms.
+  - Deposit and withdrawal tracking, so account balances reconcile properly.
+  - Broader manual import (more brokers and file formats).
+  - Automatic backfill of history when you add a new account.

@@ -1,0 +1,25 @@
+services:
+  trade-journal:
+    container_name: trade-journal
+    build: .
+    restart: unless-stopped
+    ports:
+      - "5010:8000"          # Web UI at http://localhost:5010
+    volumes:
+      - ./data:/app/data     # SQLite DB + uploaded screenshots persist here
+      - ./src:/app/src       # edit backend code without rebuilding (restart to apply)
+    environment:
+      - PYTHONUNBUFFERED=1
+      - SEED_ON_START=${SEED_ON_START:-false}
+      - UVICORN_RELOAD=${UVICORN_RELOAD:-false}
+      # Display / day-boundary timezone (DST-aware IANA name). Storage stays UTC.
+      - APP_TIMEZONE=${APP_TIMEZONE:-Europe/London}
+      # Merge hotkey scale-ins opened within this window (seconds) on sync.
+      - CTRADER_GROUP_WINDOW=${CTRADER_GROUP_WINDOW:-120}
+      # Real candles + live price (BTC/ETH). Use data-api.binance.vision if geo-blocked.
+      - BINANCE_BASE=${BINANCE_BASE:-https://api.binance.com}
+      # --- cTrader Open API (optional; see README) ---
+      - CTRADER_CLIENT_ID=${CTRADER_CLIENT_ID:-}
+      - CTRADER_CLIENT_SECRET=${CTRADER_CLIENT_SECRET:-}
+      - CTRADER_ACCESS_TOKEN=${CTRADER_ACCESS_TOKEN:-}
+      - CTRADER_ACCOUNT_ID=${CTRADER_ACCOUNT_ID:-}

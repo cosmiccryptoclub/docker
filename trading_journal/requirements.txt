@@ -1,0 +1,12 @@
+# Deliberately unpinned: single-user local app, versions are effectively pinned by
+# the built Docker image; blind pins would risk breaking the next `--build` instead.
+fastapi
+uvicorn[standard]
+sqlmodel
+pydantic
+python-dotenv
+apscheduler
+httpx
+python-multipart
+ctrader-open-api
+tzdata
